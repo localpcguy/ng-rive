@@ -117,7 +117,7 @@ import { RiveModule, RIVE_WASM } from 'ng-rive';
 export class MyModule { }
 ```
 
-to build the rive wasm runtime with the angular project it must be added into your `angular.json` config file. the `rive.wasm` runtime is provided with the `@rive-app/canvas-advanced` package. This package is already part of `@ng-rive`. This can be configured as follows:
+To build the rive wasm runtime with the angular project it must be added into your `angular.json` config file. the `rive.wasm` runtime is provided with the `@rive-app/canvas-advanced` package. Since v0.3.0, this package is installed as part of `ng-rive`, prior to that it needs to be installed separately. This can be configured as follows:
 
 ```json
 ...
@@ -143,6 +143,8 @@ to build the rive wasm runtime with the angular project it must be added into yo
   },
 ...
 ```
+
+Note: If the rive.wasm files isn't being found, check your project's `node_modules` folder and ensure the exact path to `@rive-app/canvas-advanced` is correct. For example, it may be found at `/node_modules/ng-rive/node_modules/@rive-app/canvas-advanced/` if it doesn't get flattened or there are multiple versions installed.
 
 7. (Bonus) Rive version
 If you want to set a specific version for your wasm file you can use the `RIVE_VERSION` injection token.
